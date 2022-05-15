@@ -7,21 +7,17 @@ Anaconda - Python 3.7
 
 ## Algorithm:
 ### Step1:
-<br>
-
+Import all the necessary modules for the program.
 ### Step2:
-<br>
-
+Load a image using imread() from cv2 module.
 ### Step3:
-<br>
-
+Convert the image to grayscale.
 ### Step4:
-<br>
-
+Using Sobel operator from cv2,detect the edges of the image.
 ### Step5:
-<br>
-
- 
+Using Laplacian operator from cv2,detect the edges of the image.
+### Step6:
+Using Canny  operator from cv2,detect the edges of the image.
 ## Program:
 
 ``` Python
@@ -40,34 +36,24 @@ plt.imshow(sobelx,cmap='gray')
 plt.imshow(sobely,cmap='gray')
 plt.imshow(sobelxy,cmap='gray')
 # LAPLACIAN EDGE DETECTOR
-
-
-
+dst = cv2.Laplacian(img,cv2.CV_16S,ksize=3)
+plt.imshow(dst,cmap='gray')
+abs_dst = cv2.convertScaleAbs(dst)
+plt.imshow(abs_dst,cmap='gray')
 # CANNY EDGE DETECTOR
-
-
-
-
+edges = cv2.Canny(img,100,200)
+plt.imshow(img,cmap = 'gray')
+plt.title('Original Image'), plt.xticks([]), plt.yticks([])
+plt.imshow(edges,cmap = 'gray')
+plt.title('Edge Image'), plt.xticks([]), plt.yticks([])
+plt.show()
 ```
 ## Output:
 ### SOBEL EDGE DETECTOR
 ![inp](1.png)
 ### LAPLACIAN EDGE DETECTOR
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
+![inp](2.png)
 ### CANNY EDGE DETECTOR
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
+![inp](3.png)
 ## Result:
 Thus the edges are detected using Sobel, Laplacian, and Canny edge detectors.
